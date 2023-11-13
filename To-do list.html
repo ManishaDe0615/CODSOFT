@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="To-do list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+            <h2>To-Do List</h2>
+            <input type="text" placeholder="Add your text" id="input-task">
+            <button onclick="addtask()">+</button>
+            <div id="task-list"></div>
+        </div>
+    </div>
+    
+
+
+<!-- JavaScript -->
+    <script>
+        var taskinput = document.getElementById('input-task');
+var tasklist = document.getElementById('task-list');
+
+function addtask(){
+   if (taskinput.value == ''){
+       alert('Please enter your task');
+   }
+
+   else{
+   var listitem = document.createElement('ul');
+   listitem.innerHTML = `${taskinput.value} <i class="fa fa-trash" onclick=deletetask(this)></i>`;
+   tasklist.appendChild(listitem);
+   taskinput.value ='';
+       }
+}
+function deletetask(element){
+tasklist.removeChild(element.parentNode);
+}
+    </script>
+
+
+</body>
+</html>
